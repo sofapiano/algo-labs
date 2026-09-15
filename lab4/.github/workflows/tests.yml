@@ -7,9 +7,12 @@ jobs:
   disjoint_set:
     name: Disjoint Set
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: lab4
     steps:
       - uses: actions/checkout@v4
       - name: Build tests
-        run: gcc -Wall -Wextra -o u_tests test_disjoint_set.c disjoint_set.c
+        run: gcc -Wall -Wextra -o u_tests test_disjoint_set.c disjoint_set.c ../lab3/lab3/list/generic.c ../lab3/lab3/vector/generic.c ../lab3/lab4/hash_table/generic.c -lm
       - name: Run tests
         run: ./u_tests
