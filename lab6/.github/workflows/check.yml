@@ -1,0 +1,38 @@
+name: Lab15 Lint and Type Check
+
+on:
+  push:
+
+jobs:
+  lint:
+    name: Ruff
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install dev dependencies
+        run: uv sync --only-dev
+
+      - name: Lint and format check
+        run: make lint
+
+  type-check:
+    name: Mypy
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install dev dependencies
+        run: uv sync --only-dev
+
+      - name: Type check
+        run: make type-check
+

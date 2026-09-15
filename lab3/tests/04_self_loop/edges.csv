@@ -1,0 +1,5 @@
+from,to,length,oneway,name
+1,1,0.0,False,SelfLoop
+2,2,0.0,False,SelfLoop
+1,2,100.0,False,Road
+2,3,100.0,False,Road

@@ -1,0 +1,36 @@
+name: Tests
+
+on:
+  push:
+
+jobs:
+  c-tests:
+    name: ${{ matrix.title }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - title: Knapsack
+            test_src: knapsack/tests.c
+            impl_src: knapsack/knapsack.c
+            bin_name: knapsack_tests
+          - title: LCS
+            test_src: lcs/tests.c
+            impl_src: lcs/lcs.c
+            bin_name: lcs_tests
+          - title: Levenshtein
+            test_src: levenshtein/tests.c
+            impl_src: levenshtein/levenshtein.c
+            bin_name: levenshtein_tests
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build tests
+        run: |
+          gcc -std=c11 -Wall -Wextra -pedantic \
+            -o /tmp/${{ matrix.bin_name }} \
+            ${{ matrix.test_src }} \
+            ${{ matrix.impl_src }} \
+            -lm
+      - name: Run tests
+        run: /tmp/${{ matrix.bin_name }}

@@ -1,0 +1,25 @@
+name: Tests
+
+on:
+  push:
+
+jobs:
+  u-tests:
+    name: Unit tests
+    runs-on: self-hosted 
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get current dir 
+        run: ls -lah
+      - name: Build and run
+        run: make u_tests
+
+  e2e-tests:
+    name: E2E tests
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run
+        run: make test-debug
