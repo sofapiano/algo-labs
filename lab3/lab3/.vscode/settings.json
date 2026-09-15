@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "extra_tasks.h": "c",
+        "generic.h": "c"
+    }
+}

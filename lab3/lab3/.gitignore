@@ -1,0 +1,3 @@
+*.pch
+*.out
+.DS_Store
