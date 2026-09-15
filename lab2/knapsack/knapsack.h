@@ -36,7 +36,7 @@ void freeItemList(ItemList *list);
 void printItemList(ItemList *list);
 
 
-double getValuePerWeight(Item *item);
+double getValuePerWeight(const Item *item);
 
 void sortByValuePerWeight(ItemList *list);
 
