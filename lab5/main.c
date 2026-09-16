@@ -8,15 +8,15 @@
 
 static void runSearch(TreeType type, const char* idx_path,
                       const char* query, int json_out) {
-    // Index* idx = loadIndex(idx_path, type);
-    // if (!idx) { fprintf(stderr, "Failed to load index: %s\n", idx_path); exit(1); }
+    Index* idx = loadIndex(idx_path, type);
+    if (!idx) { fprintf(stderr, "Failed to load index: %s\n", idx_path); exit(1); }
 
-    // SearchResults* sr = search(idx, query);
-    // if (json_out) printResultsJSON(sr);
-    // else          printResultsText(sr);
+    SearchResults* sr = search(idx, query);
+    if (json_out) printResultsJSON(sr);
+    else          printResultsText(sr);
 
-    // freeSearchResults(sr);
-    // freeIndex(idx);
+    freeSearchResults(sr);
+    freeIndex(idx);
 }
 
 static void usage(const char* prog) {

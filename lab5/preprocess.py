@@ -41,6 +41,7 @@ def preprocess(input_path: Path, output_path: Path, limit: int | None) -> None:
             tokens = tokenize(title + " " + body)
             if not tokens:
                 continue
+            tokens = list(dict.fromkeys(tokens))
 
             out.write(json.dumps({"doc_id": doc_id, "title": title, "tokens": tokens}) + "\n")
             count += 1

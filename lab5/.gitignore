@@ -1,0 +1,15 @@
+# датасет (огромный, добавляется вручную)
+data/
+
+# сборка
+*.o
+*.exe
+app
+test_avl
+test_rb
+test_btree
+
+# python
+__pycache__/
+*.pyc
+.venv/
